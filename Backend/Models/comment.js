@@ -5,8 +5,8 @@ const { Schema } = mongoose;
 const commentSchema = new Schema(
   {
     content: { type: String, required: true },
-    blog: { type: mongoose.schemaTypes.ObjId, ref: "blogs" },
-    author: { type: mongoose.schemaTypes.ObjId, ref: "users" },
+    blog: { type: mongoose.SchemaTypes.ObjectId, ref: "Blog" },
+    author: { type: mongoose.SchemaTypes.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );

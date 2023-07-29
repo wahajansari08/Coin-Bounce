@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
   // 1. refresh access token validation
   try {
     const { refreshToken, accessToken } = req.cookies;
-
+    console.log("access token ", accessToken);
     if (!refreshToken || !accessToken) {
       const error = {
         status: 401,
@@ -18,6 +18,7 @@ const auth = async (req, res, next) => {
     try {
       _id = JWTService.verifyAccessToken(accessToken);
     } catch (error) {
+      // console.log(error);
       return next(error);
     }
 

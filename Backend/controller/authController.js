@@ -157,7 +157,7 @@ const authController = {
     } catch (error) {
       return next(error);
     }
-
+    // res.clearCookie();
     res.cookie("accessToken", accessToken, {
       maxAge: 1000 * 60 * 60 * 24,
       httpOnly: true,
@@ -196,7 +196,7 @@ const authController = {
 
     try {
       id = JWTService.verifyRefreshToken(originalRefreshToken)._id;
-      console.log(originalRefreshToken);
+      // console.log(originalRefreshToken);
     } catch (error) {
       const e = {
         status: 401,
